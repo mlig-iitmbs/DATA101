@@ -14,6 +14,13 @@
     body { font-family: 'Inter', 'Roboto Mono', 'Orbitron', sans-serif; }
     .font-orbitron { font-family: 'Orbitron', 'Inter', sans-serif; }
     .font-roboto-mono { font-family: 'Roboto Mono', 'Inter', monospace; }
+    #feedback-carousel {
+  scroll-snap-type: x mandatory;
+}
+
+#feedback-carousel > .carousel-card {
+  scroll-snap-align: start;
+}
   </style>
 </head>
 <body class="bg-gradient-to-br from-sky-950 via-slate-900 to-blue-900 min-h-screen flex flex-col">

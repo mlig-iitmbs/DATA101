@@ -3,283 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Pythonic Sprint - ML Series</title>
+  <title>DATA 101 – Pythonic Sprint</title>
   <meta name="description" content="Welcome to the Pythonic Sprint organized by LogicLooM!">
   <meta name="keywords" content="ai,ml,nlp,data challenge,wayanad house,iitmbs,online,logicloom,ml series">
   <link href="https://mlig-iitmbs.github.io/favicon.ico" rel="icon">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <link href="/archive/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/archive/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/archive/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/archive/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/archive/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="/archive/assets/css/main.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto+Mono:wght@600&family=Inter:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', 'Roboto Mono', 'Orbitron', sans-serif; }
+    .font-orbitron { font-family: 'Orbitron', 'Inter', sans-serif; }
+    .font-roboto-mono { font-family: 'Roboto Mono', 'Inter', monospace; }
+  </style>
 </head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container position-relative d-flex align-items-center justify-content-between">
-
-      <a href="" class="logo d-flex align-items-center me-auto me-xl-0">
-        <img src="https://cdn-icons-png.flaticon.com/128/3098/3098090.png" alt="">
-        <h1 class="sitename"> <b>Python</b>ic Sprint</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li class="dropdown"><a href="#"><span>Events</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li class="dropdown"><a href="#"><span>Paradox</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li class="dropdown"><a href="#"><span>Paradox</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="https://logicloom-paradox.github.io" target="_blank">LogicLooM</a></li>
-                </ul>
-              </li>
-              <li><a href="/ml-challenge">ML Challenge</a></li>
-              <li><a href="/ml101/pylearn">Pythonic Sprint</a></li>
-              <li><a href="/epochs/">Article contest</a></li>
-            </ul>
-          </li>
-          <li><a href="/archive/gallery">Archives</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="#about">Get Started</a>
-
+<body class="bg-gradient-to-br from-sky-950 via-slate-900 to-blue-900 min-h-screen text-white">
+  <!-- Header Section -->
+  <header class="relative">
+    <img src="https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=1200&auto=format&fit=crop"
+         alt="Module Header" class="w-full h-72 md:h-96 object-cover brightness-75 rounded-b-3xl shadow-lg"/>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+      <h1 class="text-4xl md:text-6xl font-orbitron font-bold bg-gradient-to-r from-cyan-400 to-emerald-300 text-transparent bg-clip-text mb-3 drop-shadow-2xl">Pythonic Sprint</h1>
+      <p class="text-lg md:text-2xl font-roboto-mono text-gray-200 drop-shadow-xl">Kickstart your data science journey with Python programming!</p>
     </div>
   </header>
 
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background" style="background-image: url('https://www.9series.com/img/services/machine-learning/Machine%20Learning%20services%20in%20india.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row align-items-center mb-5">
-          <div class="col-lg-12 mb-4 mb-lg-0">
-            <h1 class="hero-title mb-4">Python for Beginners</h1>
-
-            <p class="hero-description mb-4">Learn Python programming the fun way.</p>
-
-            <div class="cta-wrapper">
-              <a href="#about" class="btn btn-primary">Know More</a>
-            </div>
-          </div>
-
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <!-- Module Essentials Card -->
+    <section class="bg-slate-900 bg-opacity-80 rounded-2xl shadow-lg border border-cyan-700 p-8 flex flex-col gap-6 md:flex-row md:items-center md:gap-10 mb-12 -mt-36 relative z-10">
+      <div class="flex-1 space-y-4">
+        <div>
+          <span class="block uppercase text-xs text-cyan-400 font-bold tracking-widest font-roboto-mono mb-1">Target Audience</span>
+          <p class="font-roboto-mono text-xl text-emerald-200">Beginners, 24-batch students</p>
         </div>
-
-      </div>
-
-    </section><!-- /Hero Section -->
-
-     <section id="about">
-<div class="container mt-5">
-  <div class="card shadow-sm mb-4">
-    <div class="card-body">
-      <h2 class="card-title text-primary">Pythonic Sprint for Beginners</h2>
-      <p><strong>Target Audience:</strong> 24-batch students, Python beginners</p>
-      <p><strong>Mode:</strong> Online</p>
-
-      <h5 class="mt-4">📅 Task Schedule</h5>
-      <ul>
-        <li><strong>Task 1:</strong> Released on 2nd Oct, due 6th Oct</li>
-        <li><strong>Task 2:</strong> Released on 3rd Oct, due 7th Oct</li>
-        <li><strong>Task 3:</strong> Released on 4th Oct, due 8th Oct</li>
-      </ul>
-      <p>Tasks include auto-graded MCQs, SATQs, and manually evaluated LATQs. Focus is on logical reasoning, not theory or memorization. Hints and documentation will be provided.</p>
-
-      <h5 class="mt-4">✨ Bonus Hands-on Activity</h5>
-      <p>
-        Scheduled on <strong>13th Oct</strong> in a Google Colab repository. Offered to:
-      </p>
-      <ul>
-        <li>Participants who fall short of 75% score for appreciation</li>
-        <li>Those who did not meet minimum task submission requirements</li>
-      </ul>
-
-      <h5 class="mt-4">🎯 Cut-off & Minimum Requirements</h5>
-      <ul>
-        <li><strong>75%+</strong>: Eligible for Appreciation Certificate</li>
-        <li><strong>At least 2 tasks</strong> (including bonus if needed): Minimum for Participation Certificate</li>
-      </ul>
-
-      <h5 class="mt-4">🏁 Milestone Logic</h5>
-      <ol>
-        <li><strong>Submitted at least 2 out of 3 tasks?</strong><br>
-          <ul>
-            <li>Yes: Proceed to next rule</li>
-            <li>No (only 1 task): Bonus allowed; eligible for Participation cert upon completion</li>
-            <li>None: Not eligible for any certificate</li>
-          </ul>
-        </li>
-        <li><strong>Eligible for Participation Certificate?</strong><br>
-          <ul>
-            <li>If total points ≥ 75%: Gets Appreciation Certificate</li>
-            <li>If total points &lt; 75%: Bonus attempt allowed to improve score</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h5 class="mt-4">➕ Bonus Scoring Example</h5>
-      <p>Bonus has 2 sub-tasks (1 point each).</p>
-      <p>Example:</p>
-      <ul>
-        <li>Initial score: 10.25/14 → 73.21% → Rounded to 74% → Participation cert</li>
-        <li>Bonus score: +2 → New score: 12.25/14 → 88% (Capped at 75%) → Appreciation cert</li>
-      </ul>
-
-      <h5 class="mt-4">📢 Submission & Updates</h5>
-      <p>All materials will be released on our <strong>event portal</strong>. Regularly check the portal and our discussion group for updates. We may not send individual reminders.</p>
-
-      <h5 class="mt-4">📬 Contact</h5>
-      <p>For queries, email us at <a href="mailto:wayanad-ml@ds.study.iitm.ac.in">wayanad-ml@ds.study.iitm.ac.in</a></p>
-    </div>
-  </div>
-</div>
-     </section>
-
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Feedback</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="testimonials-slider swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 800,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": 1,
-              "spaceBetween": 30,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "768": {
-                  "slidesPerView": 2
-                },
-                "1200": {
-                  "slidesPerView": 3
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-           
-<div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <p>
-                    <i class="bi bi-quote quote-icon"></i>
-                   Great initiative! Keep going, proud to be a part of this group. You guys are implementing the thoughts not just thinking or sitting idle.
-                  </p>
-                </div>
-                <div class="testimonial-profile">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <div class="profile-info">
-                    <img src="https://cdn-icons-png.flaticon.com/128/16869/16869838.png" alt="Profile Image">
-                    <div>
-                      <h3>Alwin VJ</h3>
-                      <h4>Pythonic Sprint Participant</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-
-
-<div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <p>
-                    <i class="bi bi-quote quote-icon"></i>
-                   Truly appreciate, this initiative is very interesting and engaging. Would love to participate in more such events.
-                  </p>
-                </div>
-                <div class="testimonial-profile">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <div class="profile-info">
-                    <img src="https://cdn-icons-png.flaticon.com/128/16869/16869838.png" alt="Profile Image">
-                    <div>
-                      <h3>Sourav</h3>
-                      <h4>Pythonic Sprint Participant</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->          
-
-
-            
-          </div>
-          <div class="swiper-pagination"></div>
+        <div>
+          <span class="block uppercase text-xs text-cyan-400 font-bold tracking-widest font-roboto-mono mb-1">Prerequisites</span>
+          <p class="font-roboto-mono text-lg">None! Just curiosity.</p>
         </div>
-
+        <div>
+          <span class="block uppercase text-xs text-cyan-400 font-bold tracking-widest font-roboto-mono mb-1">Mode</span>
+          <p class="font-roboto-mono text-lg">Online (Via GMeet and our event portal)</p>
+        </div>
       </div>
+      <div class="flex flex-col justify-between items-center gap-6 mt-8 md:mt-0">
+        <a href="#" class="px-7 py-3 bg-gradient-to-r from-emerald-400 to-cyan-500 rounded-xl text-slate-900 font-orbitron font-bold text-lg uppercase shadow-md hover:scale-105 transition tracking-wider">Registration closed!</a>
+        <!-- Schedule Badge -->
+        <div class="bg-cyan-900 bg-opacity-80 px-4 py-2 rounded-full font-roboto-mono text-cyan-200 shadow">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="inline w-5 h-5 mr-1 mb-1 text-emerald-400"><path d="M6 2v2H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-1V2h-2v2H8V2H6zm9 6v8a1 1 0 01-1 1H6a1 1 0 01-1-1V8h10zm-5 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+          <span>01 - 15 Oct, 2024</span>
+        </div>
+      </div>
+    </section>
 
-    </section><!-- /Testimonials Section -->
+    <!-- Topics Covered -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-orbitron text-cyan-400 mb-3 tracking-wide">Topics Covered</h2>
+      <ul class="list-disc pl-7 space-y-2 text-gray-200 leading-relaxed font-roboto-mono">
+        <li>Introduction to Python Basics: Understanding variables, data types, and basic syntax.</li>
+        <li>Using Google Colab</li>
+        <li>Control Flow and Functions: Using conditional statements and loops; functions, handling user input</li>
+        <li>Introduction to Image Processing: Handling images in Python, Pillow (PIL) library for basic image manipulation, working with libraries to automate processes that are otherwise time-consuming.</li>
+        <li>Practical applications: Mini Python projects</li>
+      </ul>
+    </section>
 
+    <!-- Learning Outcomes -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-orbitron text-cyan-400 mb-3 tracking-wide">Learning Outcomes</h2>
+      <ul class="list-disc pl-7 space-y-2 text-gray-200 font-roboto-mono">
+        <li>You will gain a strong foundation in Python basics, image processing and a bit of command-line applications.</li>
+        <li>By the end of the event, you'll be comfortable using the common Python libraries.</li>
+      </ul>
+    </section>
 
+    <!-- Schedule Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-orbitron text-cyan-400 mb-3 tracking-wide">Schedule</h2>
+      <p class="text-gray-200">All materials will be released on our event portal. Based on the contents, we will release 3 reflection quizzes and 2 hands-on tasks. Check the portal and our discussion group for updates. We may not send individual reminders via mail.</p>
+      <div class="rounded-xl border border-cyan-700 overflow-hidden shadow divide-y divide-slate-800 font-roboto-mono">
+        <div class="flex items-center justify-between px-5 py-3 bg-slate-800">
+          <span class="text-cyan-200 font-semibold">Task 1</span>
+          <span class="text-gray-300">Release: 2nd Oct</span>
+          <span class="text-cyan-200">Due 6th Oct</span>
+        </div>
+        <div class="flex items-center justify-between px-5 py-3 bg-slate-900">
+          <span class="text-cyan-200 font-semibold">Task 2</span>
+          <span class="text-gray-300">Release: 4th Oct</span>
+          <span class="text-cyan-200">Due 7th Oct</span>
+        </div>
+         <div class="flex items-center justify-between px-5 py-3 bg-slate-900">
+          <span class="text-cyan-200 font-semibold">Task 3</span>
+          <span class="text-gray-300">Release: 5th Oct</span>
+          <span class="text-cyan-200">Due 10th Oct</span>
+        </div>
+         <div class="flex items-center justify-between px-5 py-3 bg-slate-900">
+          <span class="text-cyan-200 font-semibold">Hands-on Tasks</span>
+          <span class="text-gray-300">Release: 12th Oct</span>
+          <span class="text-cyan-200">Due 15th Oct</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evaluation & Prizes -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-orbitron text-cyan-400 mb-3 tracking-wide">Evaluation & Prizes</h2>
+      <ul class="list-disc pl-7 text-gray-200 space-y-2 font-roboto-mono">
+        <li>Participation: Submission of atleast 2 out of 5 tasks</li>
+        <li>Appreciation: Completion of first 3 tasks and an overall points ≥ 75%</li>
+        <li>Quiz on Module Wrap-up</li>
+        <!--<li>
+          <span class="font-bold text-emerald-300">Prizes:</span>
+          prize details
+        </li>-->
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="mb-6">
+      <h2 class="text-2xl font-orbitron text-cyan-400 mb-3 tracking-wide">Contact</h2>
+      <div class="bg-gradient-to-r from-blue-900 via-slate-900 to-cyan-800 rounded-xl p-5 shadow flex flex-col md:flex-row items-start gap-8 font-roboto-mono">
+        <div>
+          <span class="block text-sm mb-1 text-gray-400 uppercase font-bold">Email</span>
+          <a href="mailto:logicloom@ds.study.iitm.ac.in" class="text-cyan-300 hover:underline">logicloom@ds.study.iitm.ac.in</a>
+        </div>
+        <div>
+          <span class="block text-sm mb-1 text-gray-400 uppercase font-bold">Event Mentor</span>
+          <span class="text-gray-200">Somsubhra</span>
+        </div>
+        <div>
+          <span class="block text-sm mb-1 text-gray-400 uppercase font-bold">Volunteer</span>
+          <span class="text-gray-200">Rohit Satheesh</span>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer id="footer" class="footer light-background">
-
-    <div class="container copyright text-center mt-4">
-      <p>&copy; 2023-25 ML series (LogicLooM) team, All Rights Reserved</p>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>, Logo credit: flaticon.com<br><br>
-        Note: This portal is hosted solely for the benefit of the student community, and the institute does not endorse or assume responsibility for the content, products, or services provided here. The ML Series team will NOT be responsible for any issues, if any, after using this site. By accessing this site, you by-default agree to all TnCs.
-      </div>
-    </div>
-
+  <!-- Footer -->
+  <footer class="mb-4 text-slate-400 text-center text-sm font-roboto-mono">
+    © ML Series (LogicLooM) team
   </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="/archive/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/archive/assets/vendor/php-email-form/validate.js"></script>
-  <script src="/archive/assets/vendor/aos/aos.js"></script>
-  <script src="/archive/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/archive/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="/archive/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/archive/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="/archive/assets/js/main.js"></script>
-
 </body>
 </html>

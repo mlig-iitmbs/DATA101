@@ -84,7 +84,7 @@
   <div id="sessions-wrapper" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
 
         <!-- Module Card 1 -->
-        <div class="module-card past opacity-0 translate-y-4 transition-all duration-300 ease-in-out hidden bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
+        <div class="module-card past hidden bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
           <img src="https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=862&auto=format&fit=crop"
                class="rounded-xl h-32 w-full object-cover mb-4" alt="Module" />
           <div class="flex-1">
@@ -103,7 +103,7 @@
         </div>
 
         <!-- Module Card 2 -->
-        <div class="module-card upcoming opacity-0 translate-y-4 transition-all duration-300 ease-in-out bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
+        <div class="module-card upcoming bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
           <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
                class="rounded-xl h-32 w-full object-cover mb-4" alt="Module" />
           <div class="flex-1">
@@ -271,41 +271,21 @@
 </script>
 <script>
 function showSessions(type) {
-  const cards = document.querySelectorAll('.module-card');
-
-  // Step 1: Hide all cards (with fade out)
-  cards.forEach(card => {
-    if (card.classList.contains('flex')) {
-      card.classList.remove('opacity-100', 'translate-y-0');
-      card.classList.add('opacity-0', 'translate-y-4');
-
-      setTimeout(() => {
-        card.classList.remove('flex');
-        card.classList.add('hidden');
-      }, 300); // matches Tailwind duration
-    }
+  const allCards = document.querySelectorAll('.module-card');
+  allCards.forEach(card => {
+    card.style.display = 'none';
   });
 
-  // Step 2: Show only the selected ones (after old ones are hidden)
-  setTimeout(() => {
-    const visibleCards = document.querySelectorAll(`.session-card.${type}`);
-    visibleCards.forEach(card => {
-      card.classList.remove('hidden');
-      card.classList.add('flex');
-      
-      // trigger reflow for animation
-      void card.offsetWidth;
+  const visibleCards = document.querySelectorAll(`.module-card.${type}`);
+  visibleCards.forEach(card => {
+    card.style.display = 'flex';
+  });
 
-      card.classList.remove('opacity-0', 'translate-y-4');
-      card.classList.add('opacity-100', 'translate-y-0');
-    });
-  }, 320);
-
-  // Toggle button states
   document.getElementById('btn-upcoming').classList.toggle('bg-cyan-700', type === 'upcoming');
-  document.getElementById('btn-past').classList.toggle('bg-cyan-700', type === 'past');
+  document.getElementById('btn-past').classList.toggle('bg-slate-700', type === 'past');
+
   document.getElementById('btn-upcoming').classList.toggle('bg-slate-700', type !== 'upcoming');
-  document.getElementById('btn-past').classList.toggle('bg-slate-700', type !== 'past');
+  document.getElementById('btn-past').classList.toggle('bg-cyan-700', type !== 'past');
 }
 window.addEventListener('DOMContentLoaded', () => showSessions('upcoming'));
 </script>

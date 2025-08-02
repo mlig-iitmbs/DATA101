@@ -76,7 +76,7 @@
           <a href="pylearn" class="mt-3 py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-900 font-bold shadow-md hover:scale-105 transition">View</a>
         </div>
 
-        <!-- Module Card 2 -->
+        <!-- Module Card 2 
         <div class="bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col">
           <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
                class="rounded-xl h-32 w-full object-cover mb-4" alt="Module" />
@@ -93,9 +93,9 @@
             </div>
           </div>
           <a href="#" class="mt-3 py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-900 font-bold shadow-md hover:scale-105 transition">View</a>
-        </div>
+        </div> -->
 
-        <!-- Module Card 3 -->
+        <!-- Module Card 3
         <div class="bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col">
           <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
                class="rounded-xl h-32 w-full object-cover mb-4" alt="Module" />
@@ -112,7 +112,7 @@
             </div>
           </div>
           <a href="#" class="mt-3 py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-900 font-bold shadow-md hover:scale-105 transition">View</a>
-        </div>
+        </div> -->
 
       
 
@@ -142,10 +142,77 @@
       </div>
     </section>
 
+
+    <!-- Carousel Participant Feedback Section -->
+<section class="mb-12">
+  <h2 class="text-2xl font-orbitron text-cyan-400 mb-6 tracking-wide">What Participants Say</h2>
+  <div class="relative max-w-3xl mx-auto">
+    <!-- Slides Wrapper -->
+    <div id="feedback-carousel" class="flex transition-transform duration-700 ease-in-out" style="overflow:visible;">
+      <!-- Feedback Card 1 -->
+      <div class="carousel-card bg-slate-900 bg-opacity-80 rounded-2xl shadow-lg border border-cyan-700 p-6 flex flex-col items-start min-w-full md:min-w-[30rem]">
+        <div class="flex items-center mb-3">
+          <img src="https://cdn-icons-png.flaticon.com/128/16869/16869838.png" alt="Participant" class="w-10 h-10 rounded-full border-2 border-cyan-400 object-cover mr-3">
+          <div>
+            <span class="font-roboto-mono text-cyan-300 font-bold">Sourav (Pythonic Sprint)</span>
+            <div class="flex gap-1 text-cyan-400 text-lg mt-1">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-200 font-roboto-mono">Truly appreciate, this initiative is very interesting and engaging. Would love to participate in more such events.</p>
+      </div>
+      <!-- Feedback Card 2 -->
+      <div class="carousel-card bg-slate-900 bg-opacity-80 rounded-2xl shadow-lg border border-cyan-700 p-6 flex flex-col items-start min-w-full md:min-w-[30rem]">
+        <div class="flex items-center mb-3">
+          <img src="https://cdn-icons-png.flaticon.com/128/16869/16869838.png" alt="Participant" class="w-10 h-10 rounded-full border-2 border-cyan-400 object-cover mr-3">
+          <div>
+            <span class="font-roboto-mono text-cyan-300 font-bold">Alwin VJ (Pythonic Sprint)</span>
+            <div class="flex gap-1 text-cyan-400 text-lg mt-1">
+              &#9733;&#9733;&#9733;&#9733;&#9734;
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-200 font-roboto-mono">Great initiative! Keep going, proud to be a part of this group. You guys are implementing the thoughts, not just thinking or sitting idle.</p>
+      </div>
+      
+      <!-- more feedbacks as needed -->
+    </div>
+
+    <!-- Carousel navigation -->
+    <button onclick="carouselMove(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-cyan-700 bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full shadow-md transition hidden sm:block" aria-label="Prev">&#8592;</button>
+    <button onclick="carouselMove(1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-700 bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full shadow-md transition hidden sm:block" aria-label="Next">&#8594;</button>
+    <!-- Dots navigation for small screens -->
+    <div class="flex justify-center items-center gap-2 mt-4 sm:hidden">
+      <button class="carousel-dot w-3 h-3 bg-cyan-700 rounded-full" onclick="carouselGo(0)"></button>
+      <button class="carousel-dot w-3 h-3 bg-cyan-700 rounded-full" onclick="carouselGo(1)"></button>
+      <button class="carousel-dot w-3 h-3 bg-cyan-700 rounded-full" onclick="carouselGo(2)"></button>
+    </div>
+  </div>
+</section>
+
     <footer class="mt-20 mb-4 text-slate-400 text-center text-sm font-roboto-mono">
       © ML Series (LogicLooM) team
     </footer>
-
   </div>
+<script>
+let currentSlide = 0;
+const carousel = document.getElementById('feedback-carousel');
+const cards = carousel.querySelectorAll('.carousel-card');
+const dots = document.querySelectorAll('.carousel-dot');
+function carouselUpdate() {
+  cards.forEach((c,i) => c.style.transform = `translateX(-${currentSlide * 100}%)`);
+  if(dots.length) dots.forEach((d,i)=> d.style.opacity = currentSlide===i?"1":"0.4");
+}
+function carouselMove(dir){
+  currentSlide = (currentSlide + dir + cards.length) % cards.length;
+  carouselUpdate();
+}
+function carouselGo(idx){
+  currentSlide = idx;
+  carouselUpdate();
+}
+window.addEventListener('DOMContentLoaded',()=>carouselUpdate());
+</script>
 </body>
 </html>

@@ -65,13 +65,26 @@
     </section>
 
     <!-- Modules/Sessions Section -->
-    <section id="modules" class="mt-20">
+    <section id="modules" class="mt-20 px-4 text-center">
       <h2 class="text-3xl font-orbitron font-bold text-cyan-400 mb-6 tracking-wider">Sessions</h2>
-      <!-- Module Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Toggle Buttons -->
+  <div class="flex justify-center gap-4 mb-8">
+    <button onclick="showSessions('upcoming')" id="btn-upcoming"
+      class="px-4 py-2 bg-cyan-700 text-white rounded-full font-roboto-mono shadow-md hover:bg-cyan-600 transition">
+      Upcoming
+    </button>
+    <button onclick="showSessions('past')" id="btn-past"
+      class="px-4 py-2 bg-slate-700 text-white rounded-full font-roboto-mono shadow-md hover:bg-slate-600 transition">
+      Past
+    </button>
+  </div>
+ 
+  <!-- Cards Wrapper -->
+  <div id="sessions-wrapper" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
 
         <!-- Module Card 1 -->
-        <div class="module-card bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
+        <div class="module-card past hidden bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
           <img src="https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=862&auto=format&fit=crop"
                class="rounded-xl h-32 w-full object-cover mb-4" alt="Module" />
           <div class="flex-1">
@@ -255,6 +268,26 @@
     const cardWidth = cards[0].offsetWidth;
     track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
   });
+</script>
+  <script>
+function showSessions(type) {
+  const allCards = document.querySelectorAll('.module-card');
+  allCards.forEach(card => {
+    card.style.display = 'none';
+  });
+
+  const visibleCards = document.querySelectorAll(`.module-card.${type}`);
+  visibleCards.forEach(card => {
+    card.style.display = 'flex';
+  });
+
+  document.getElementById('btn-upcoming').classList.toggle('bg-cyan-700', type === 'upcoming');
+  document.getElementById('btn-past').classList.toggle('bg-slate-700', type === 'past');
+
+  document.getElementById('btn-upcoming').classList.toggle('bg-slate-700', type !== 'upcoming');
+  document.getElementById('btn-past').classList.toggle('bg-cyan-700', type !== 'past');
+}
+window.addEventListener('DOMContentLoaded', () => showSessions('upcoming'));
 </script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>

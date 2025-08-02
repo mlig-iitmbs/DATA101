@@ -84,13 +84,13 @@
   <div id="sessions-wrapper" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
 
         <!-- Module Card 1 -->
-        <div class="module-card past hidden bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
+        <div class="module-card past opacity-0 translate-y-4 transition-all duration-300 ease-in-out hidden bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
           <img src="https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=862&auto=format&fit=crop"
                class="rounded-xl h-32 w-full object-cover mb-4" alt="Module" />
           <div class="flex-1">
             <h3 class="font-orbitron text-2xl text-cyan-300 mb-2">Python Foundations</h3>
             <div class="space-x-2 mb-3">
-              <span class="bg-cyan-700/50 text-cyan-100 px-2 py-1 rounded-full font-roboto-mono text-xs backdrop-blur-sm shadow-sm">1st - 15th Nov 2024</span>
+              <span class="bg-cyan-700/50 text-cyan-100 px-2 py-1 rounded-full font-roboto-mono text-xs backdrop-blur-sm shadow-sm">Beginners</span>
               <span class="bg-cyan-700/50 text-cyan-100 px-2 py-1 rounded-full font-roboto-mono text-xs backdrop-blur-sm shadow-sm">Hands-on</span>
             </div>
             <div class="mb-3 text-sm text-gray-400 font-roboto-mono flex items-center gap-2">
@@ -102,24 +102,24 @@
           <a href="pylearn" class="mt-3 py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-900 font-bold shadow-md hover:scale-105 transition">View ⟶</a>
         </div>
 
-        <!-- Module Card 2 
-        <div class="bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col">
+        <!-- Module Card 2 -->
+        <div class="module-card upcoming opacity-0 translate-y-4 transition-all duration-300 ease-in-out bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col hover:scale-[1.02] hover:shadow-cyan-500/30 transition-transform duration-300" data-aos="fade-up">
           <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
                class="rounded-xl h-32 w-full object-cover mb-4" alt="Module" />
           <div class="flex-1">
-            <h3 class="font-orbitron text-2xl text-cyan-300 mb-2">Module 2: Data Wrangling</h3>
+            <h3 class="font-orbitron text-2xl text-cyan-300 mb-2">TBA</h3>
             <div class="space-x-2 mb-3">
-              <span class="bg-cyan-900 text-cyan-300 px-2 py-1 rounded font-roboto-mono text-xs">Hands-on</span>
-              <span class="bg-cyan-900 text-cyan-300 px-2 py-1 rounded font-roboto-mono text-xs">Python</span>
+              <span class="bg-cyan-700/50 text-cyan-100 px-2 py-1 rounded-full font-roboto-mono text-xs backdrop-blur-sm shadow-sm">Hands-on</span>
+              <span class="bg-cyan-700/50 text-cyan-100 px-2 py-1 rounded-full font-roboto-mono text-xs backdrop-blur-sm shadow-sm">Python</span>
             </div>
             <div class="mb-3 text-sm text-gray-400 font-roboto-mono flex items-center gap-2">
               Mentor:
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" class="w-7 h-7 rounded-full border-2 border-cyan-300 object-cover">
+              <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" class="w-7 h-7 rounded-full border-2 border-cyan-300 object-cover">
               <span class="text-neutral-200">name</span>
             </div>
           </div>
           <a href="#" class="mt-3 py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-900 font-bold shadow-md hover:scale-105 transition">View</a>
-        </div> -->
+        </div>
 
         <!-- Module Card 3
         <div class="bg-gradient-to-br from-slate-800 to-cyan-900 rounded-2xl shadow-xl border border-cyan-700 p-5 flex flex-col">
@@ -271,22 +271,34 @@
 </script>
   <script>
 function showSessions(type) {
-  const allCards = document.querySelectorAll('.module-card');
-  allCards.forEach(card => {
-    card.style.display = 'none';
-  });
+  const cards = document.querySelectorAll('.module-card');
 
-  const visibleCards = document.querySelectorAll(`.module-card.${type}`);
-  visibleCards.forEach(card => {
-    card.style.display = 'flex';
+  cards.forEach(card => {
+    if (card.classList.contains(type)) {
+      card.classList.remove('opacity-0', 'translate-y-4', 'hidden');
+      card.classList.add('flex');
+
+      setTimeout(() => {
+        card.classList.add('opacity-100', 'translate-y-0');
+        card.classList.remove('opacity-0', 'translate-y-4');
+      }, 20);
+    } else {
+      card.classList.remove('opacity-100', 'translate-y-0');
+      card.classList.add('opacity-0', 'translate-y-4');
+
+      setTimeout(() => {
+        card.classList.remove('flex');
+        card.classList.add('hidden');
+      }, 300);
+    }
   });
 
   document.getElementById('btn-upcoming').classList.toggle('bg-cyan-700', type === 'upcoming');
   document.getElementById('btn-past').classList.toggle('bg-slate-700', type === 'past');
-
   document.getElementById('btn-upcoming').classList.toggle('bg-slate-700', type !== 'upcoming');
   document.getElementById('btn-past').classList.toggle('bg-cyan-700', type !== 'past');
 }
+
 window.addEventListener('DOMContentLoaded', () => showSessions('upcoming'));
 </script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

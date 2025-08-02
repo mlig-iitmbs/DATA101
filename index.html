@@ -14,12 +14,8 @@
     body { font-family: 'Inter', 'Roboto Mono', 'Orbitron', sans-serif; }
     .font-orbitron { font-family: 'Orbitron', 'Inter', sans-serif; }
     .font-roboto-mono { font-family: 'Roboto Mono', 'Inter', monospace; }
-    #feedback-carousel {
-  scroll-snap-type: x mandatory;
-}
-
-#feedback-carousel > .carousel-card {
-  scroll-snap-align: start;
+   #carousel-track::-webkit-scrollbar {
+  display: none;
 }
   </style>
 </head>
@@ -150,76 +146,90 @@
     </section>
 
 
-    <!-- Carousel Participant Feedback Section -->
-<section class="mb-12">
-  <h2 class="text-2xl font-orbitron text-cyan-400 mt-5 mb-6 tracking-wide">What Participants Say</h2>
-  <div class="relative max-w-3xl mx-auto">
-    <!-- Slides Wrapper -->
-    <div id="feedback-carousel" class="flex transition-transform duration-700 ease-in-out" style="overflow:visible;">
-      <!-- Feedback Card 1 -->
-      <div class="carousel-card bg-slate-900 bg-opacity-80 rounded-2xl shadow-lg border border-cyan-700 p-6 flex flex-col items-start min-w-full md:min-w-[30rem]">
-        <div class="flex items-center mb-3">
-          <img src="https://cdn-icons-png.flaticon.com/128/16869/16869838.png" alt="Participant" class="w-10 h-10 rounded-full border-2 border-cyan-400 object-cover mr-3">
-          <div>
-            <span class="font-roboto-mono text-cyan-300 font-bold">Sourav (Pythonic Sprint)</span>
-            <div class="flex gap-1 text-cyan-400 text-lg mt-1">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
+ <section class="mt-24 px-4">
+  <h2 class="text-2xl md:text-3xl font-orbitron text-cyan-400 text-center mb-8 tracking-wide">
+    What Participants Say
+  </h2>
+
+  <div class="relative max-w-5xl mx-auto">
+    <!-- Carousel Wrapper -->
+    <div id="feedback-carousel" class="overflow-hidden relative">
+      <!-- Inner Track -->
+      <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+        <!-- Feedback Card 1 -->
+        <div class="flex-shrink-0 w-full md:w-[32rem] px-2">
+          <div class="bg-slate-900 border border-cyan-700 rounded-2xl shadow-xl p-6 h-full">
+            <div class="flex items-center mb-3">
+              <img src="https://cdn-icons-png.flaticon.com/128/16869/16869838.png" class="w-10 h-10 rounded-full border-2 border-cyan-400 mr-3"/>
+              <div>
+                <p class="font-roboto-mono text-cyan-300 font-bold">Sourav (Pythonic Sprint)</p>
+                <p class="text-cyan-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              </div>
             </div>
+            <p class="text-gray-200 font-roboto-mono">
+              Truly appreciate, this initiative is very interesting and engaging. Would love to participate in more such events.
+            </p>
           </div>
         </div>
-        <p class="text-gray-200 font-roboto-mono">Truly appreciate, this initiative is very interesting and engaging. Would love to participate in more such events.</p>
-      </div>
-      <!-- Feedback Card 2 -->
-      <div class="carousel-card bg-slate-900 bg-opacity-80 rounded-2xl shadow-lg border border-cyan-700 p-6 flex flex-col items-start min-w-full md:min-w-[30rem]">
-        <div class="flex items-center mb-3">
-          <img src="https://cdn-icons-png.flaticon.com/128/16869/16869838.png" alt="Participant" class="w-10 h-10 rounded-full border-2 border-cyan-400 object-cover mr-3">
-          <div>
-            <span class="font-roboto-mono text-cyan-300 font-bold">Alwin VJ (Pythonic Sprint)</span>
-            <div class="flex gap-1 text-cyan-400 text-lg mt-1">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
+
+        <!-- Feedback Card 2 -->
+        <div class="flex-shrink-0 w-full md:w-[32rem] px-2">
+          <div class="bg-slate-900 border border-cyan-700 rounded-2xl shadow-xl p-6 h-full">
+            <div class="flex items-center mb-3">
+              <img src="https://cdn-icons-png.flaticon.com/128/16869/16869838.png" class="w-10 h-10 rounded-full border-2 border-cyan-400 mr-3"/>
+              <div>
+                <p class="font-roboto-mono text-cyan-300 font-bold">Alwin VJ (Pythonic Sprint)</p>
+                <p class="text-cyan-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              </div>
             </div>
+            <p class="text-gray-200 font-roboto-mono">
+              Great initiative! Proud to be a part of this group. You’re implementing ideas, not just thinking or sitting idle.
+            </p>
           </div>
         </div>
-        <p class="text-gray-200 font-roboto-mono">Great initiative! Keep going, proud to be a part of this group. You guys are implementing the thoughts, not just thinking or sitting idle.</p>
+
+        <!-- more cards as needed -->
+        
       </div>
-      
-      <!-- more feedbacks as needed -->
     </div>
 
-    <!-- Carousel navigation -->
-    <button onclick="carouselMove(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-cyan-700 bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full shadow-md transition hidden sm:block" aria-label="Prev">&#8592;</button>
-    <button onclick="carouselMove(1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-700 bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full shadow-md transition hidden sm:block" aria-label="Next">&#8594;</button>
-    <!-- Dots navigation for small screens -->
-    <div class="flex justify-center items-center gap-2 mt-4 sm:hidden">
-      <button class="carousel-dot w-3 h-3 bg-cyan-700 rounded-full" onclick="carouselGo(0)"></button>
-      <button class="carousel-dot w-3 h-3 bg-cyan-700 rounded-full" onclick="carouselGo(1)"></button>
-      <button class="carousel-dot w-3 h-3 bg-cyan-700 rounded-full" onclick="carouselGo(2)"></button>
-    </div>
+    <button onclick="carouselMove(-1)" aria-label="Prev"
+      class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-cyan-600 hover:bg-cyan-500 text-white p-3 rounded-full shadow-lg z-10">
+      &#8592;
+    </button>
+
+    <button onclick="carouselMove(1)" aria-label="Next"
+      class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-cyan-600 hover:bg-cyan-500 text-white p-3 rounded-full shadow-lg z-10">
+      &#8594;
+    </button>
   </div>
 </section>
-
+    
     <footer class="mt-20 mb-4 text-slate-400 text-center text-sm font-roboto-mono">
       © ML Series (LogicLooM) team
     </footer>
   </div>
 <script>
-let currentSlide = 0;
-const carousel = document.getElementById('feedback-carousel');
-const cards = carousel.querySelectorAll('.carousel-card');
-const dots = document.querySelectorAll('.carousel-dot');
-function carouselUpdate() {
-  cards.forEach((c,i) => c.style.transform = `translateX(-${currentSlide * 100}%)`);
-  if(dots.length) dots.forEach((d,i)=> d.style.opacity = currentSlide===i?"1":"0.4");
-}
-function carouselMove(dir){
-  currentSlide = (currentSlide + dir + cards.length) % cards.length;
-  carouselUpdate();
-}
-function carouselGo(idx){
-  currentSlide = idx;
-  carouselUpdate();
-}
-window.addEventListener('DOMContentLoaded',()=>carouselUpdate());
+  let currentIndex = 0;
+  const track = document.getElementById("carousel-track");
+  const cards = track.children;
+
+  function carouselMove(direction) {
+    const totalCards = cards.length;
+    const maxIndex = totalCards - 1;
+
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+    const cardWidth = cards[0].offsetWidth;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+
+  window.addEventListener('resize', () => {
+    const cardWidth = cards[0].offsetWidth;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  });
 </script>
 </body>
 </html>
